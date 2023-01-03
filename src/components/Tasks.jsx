@@ -1,13 +1,20 @@
 import React from 'react'
+import '../App.css'
 
 export default function Tasks(props) {
+    
     return (
-        <div className='mt-6 mb-6 p-3 rounded-2xl bg-white flex w-10/12 justify-center items-center m-auto hover:bg-[#ff7f50]'>
+        <div className='mt-6 mb-6 p-3 h-16 rounded-2xl bg-white flex w-10/12 justify-center items-center m-auto hover:bg-[#fd8f66]'>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
             <h1 className='text-[#636363] font-semibold'>{props.task}</h1>
-            <span className="material-symbols-outlined" style={{marginLeft: '89%'}}>
+            <span className="material-symbols-outlined cursor-pointer relative right-4" onClick={() => {document.getElementById(props.buttonid).classList.toggle('show')}} style={{ marginLeft: '89%' }}>
                 more_vert
             </span>
+            <div className=' z-10 relative top-20 hidden bg-white right-14 justify-center items-center m-2 rounded-md' id={props.buttonid} style={{ marginLeft: '' }}>
+                <h3 className='w-20 m-2'>Completed</h3>
+                <h3 className='w-20 m-2'>Important</h3>
+                <h3 className='w-20 m-2'>Delete</h3>
+            </div>
         </div>
     )
 }
