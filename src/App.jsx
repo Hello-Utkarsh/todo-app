@@ -4,17 +4,19 @@ import './App.css'
 import Tasks from './components/Tasks'
 import TextArea from './components/TextArea'
 import Tasklist from './components/Tasklist'
+import {nanoid} from 'nanoid'
 
 function App() {
   const [notes, setnotes] = useState([
-    { text: 'First Note', id: 'work1' },
-    { text: 'Second Note', id: 'work123' },
-    { text: 'third Note', id: 'work11' },
-    { text: 'Forthhhhhhhhhhhhh Note', id: 'work112' },
+    { text: 'First Note', id: nanoid() },
+    { text: 'Second Note', id: nanoid() },
+    { text: 'third Note', id: nanoid() },
+    { text: 'Forthhhhhhhhhhhhh Note', id: nanoid() },
   ])
   const addtext = (text) => {
-    tasks = text
-    console.log(tasks)
+    const newnote = {text: text, id: nanoid()}
+    const newnotes = [...notes, newnote]
+    setnotes(newnotes)
   }
 
   return (
