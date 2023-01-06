@@ -8,10 +8,10 @@ import { nanoid } from 'nanoid'
 
 function App() {
   const [notes, setnotes] = useState([
-    { text: 'First Note', id: nanoid() },
-    { text: 'Second Note', id: nanoid() },
-    { text: 'third ote', id: nanoid() },
-    { text: 'Forthhhhhhhhhhhhh Note', id: nanoid() },
+    { text: 'Sample Task1', id: nanoid() },
+    { text: 'Sample Task2', id: nanoid() },
+    { text: 'Sample Task3', id: nanoid() },
+    { text: 'Sample Task4', id: nanoid() },
   ])
 
   const addtext = (text) => {

@@ -10,6 +10,7 @@ function TextArea({ handleaddtext }) {
     if (taskentered != '') {
       handleaddtext(taskentered)
       document.getElementById('taskinput').value = "Enter a task"
+      settaskentered('')
     }
     else {
       document.getElementById('taskinput').value = "Please enter a task first"
