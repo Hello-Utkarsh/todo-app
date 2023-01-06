@@ -1,20 +1,28 @@
 import React from 'react'
 import { useState } from 'react'
 
-function TextArea({handleaddtext}) {
-    let finaltext = ''
-    const [taskentered, settaskentered] = useState('')
-    const handleChange = (event)=>{
-        settaskentered(event.target.value)
+function TextArea({ handleaddtext }) {
+  const [taskentered, settaskentered] = useState('')
+  const handleChange = (event) => {
+    settaskentered(event.target.value)
+  }
+  const handleClick = () => {
+    if (taskentered != '') {
+      handleaddtext(taskentered)
+      document.getElementById('taskinput').value = "Enter a task"
     }
+    else {
+      document.getElementById('taskinput').value = "Please enter a task first"
+    }
+  }
 
-    const handleClick = ()=>{
-        handleaddtext(taskentered)
-    }
+  const cleardefault = (event) => {
+    event.target.value = ''
+  }
   return (
-    <div className='absolute bottom-2 w-8/12 bg-white flex items-center justify-around rounded-xl' style={{marginLeft: '6%'}}>
-      <input type="text" defaultValue="Enter Your Tasks" onChange={handleChange} className='w-11/12 m-1 p-6 text-[#676767] rounded-xl h-10' />
-      <button className='rounded-lg bg-slate-400 w-12 h-8' onClick={handleClick}>Enter</button>
+    <div className='relative bottom-1 w-10/12 bg-white flex items-center justify-around rounded-xl' style={{ marginLeft: '8.5%' }}>
+      <input id='taskinput' type="text" defaultValue="Add a task" onClick={cleardefault} onChange={handleChange} className='w-10/12 m-1 pt-3 pb-3 text-[#676767] rounded-xl h-10 outline-0' />
+      <button className='rounded-lg bg-slate-400 w-14 h-8 flex justify-center items-center' onClick={handleClick}>Enter</button>
     </div>
   )
 }
