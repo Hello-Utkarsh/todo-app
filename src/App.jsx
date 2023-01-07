@@ -22,11 +22,16 @@ function App() {
     }
   }
 
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id)
+    setnotes(newNotes)
+  }
+
   return (
     <div className="App bg-[#ffeaea] p-3" id='screen'>
       <div className='rightwindow w-4/5 mt-8' style={{ marginLeft: '20%' }}>
         <div>
-          <Tasklist notes={notes} />
+          <Tasklist notes={notes} handleNoteDelete = {deleteNote} />
         </div>
         <TextArea handleaddtext={addtext} />
       </div>
