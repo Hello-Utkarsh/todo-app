@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 
-const Tasks = ({text, id, handleNoteDelete}) => {
+const Tasks = ({text, id, handleNoteDelete, handleimportant}) => {
 
 
     return (
@@ -13,7 +13,7 @@ const Tasks = ({text, id, handleNoteDelete}) => {
             </span>
             <div className=' z-10 relative top-20 hidden bg-white justify-center items-center m-2 rounded-md' id={id} style={{ marginLeft: '92%' }}>
                 <h3 onClick={()=>{handleNoteDelete(id)}} className='cursor-pointer w-20 m-2'>Completed</h3>
-                <h3 className='w-20 m-2'>Important</h3>
+                <h3 onClick={()=>{handleimportant(id)}} className='w-20 m-2 cursor-pointer'>Important</h3>
                 <h3 onClick={()=>{handleNoteDelete(id)}} className='cursor-pointer w-20 m-2'>Delete</h3>
             </div>
         </div>

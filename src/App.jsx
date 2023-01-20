@@ -14,6 +14,13 @@ function App() {
     { text: 'Sample Task4', id: nanoid() },
   ])
 
+  const important = (id) => {
+    const importantnotes = notes.filter((note)=>note.id === id)
+    const finalnotes = notes.filter((note)=>note.id !== id)
+    const finalimportantnotes = [...importantnotes, ...finalnotes]
+    setnotes(finalimportantnotes)
+  }
+
   const addtext = (text) => {
     if (text !== '') {
       const newnote = { text: text, id: nanoid() }
@@ -54,7 +61,7 @@ function App() {
         </div>
         <div className='rightwindow w-10/12 mt-8' style={{ marginLeft: '20%' }}>
           <div>
-            <Tasklist notes={notes} handleNoteDelete={deleteNote} />
+            <Tasklist notes={notes} handleNoteDelete={deleteNote} handleimportant = {important}/>
           </div>
           <TextArea handleaddtext={addtext} />
         </div>
