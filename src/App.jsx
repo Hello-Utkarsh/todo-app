@@ -37,7 +37,7 @@ function App() {
   return (
     <div className="App bg-[#ffeaea]" id='screen'>
       <div className='flex w-full'>
-        <div className='leftwindow fixed w-2/12 pt-8 bg-white h-[100vh]'>
+        {/* <div className='leftwindow fixed w-2/12 pt-8 bg-white h-[100vh]'>
           <div className='flex flex-col content-center text-2xl font-semibold'>
             <div className='flex content-center cursor-pointer hover:bg-gray-300 items-center pt-3 pb-3'>
               <span class="material-symbols-outlined ml-3 mr-4" style={{ color: 'grey' }}>
@@ -58,8 +58,8 @@ function App() {
               <h1 className='text-lg'>Groceries</h1>
             </div>
           </div>
-        </div>
-        <div className='rightwindow w-10/12 mt-8' style={{ marginLeft: '20%' }}>
+        </div> */}
+        <div className='rightwindow w-10/12 mt-8' style={{ marginLeft: '10%' }}>
           <div>
             <Tasklist notes={notes} handleNoteDelete={deleteNote} handleimportant = {important}/>
           </div>
