@@ -7,6 +7,7 @@ import Tasklist from './components/Tasklist'
 import { nanoid } from 'nanoid'
 
 function App() {
+  
   const [notes, setnotes] = useState([
     { text: 'Sample Task1', id: nanoid() },
     { text: 'Sample Task2', id: nanoid() },
@@ -15,10 +16,11 @@ function App() {
   ])
 
   const important = (id) => {
-    const importantnotes = notes.filter((note)=>note.id === id)
-    const finalnotes = notes.filter((note)=>note.id !== id)
+    const importantnotes = notes.filter((note) => note.id === id)
+    const finalnotes = notes.filter((note) => note.id !== id)
     const finalimportantnotes = [...importantnotes, ...finalnotes]
     setnotes(finalimportantnotes)
+    console.log(id)
   }
 
   const addtext = (text) => {
@@ -37,31 +39,9 @@ function App() {
   return (
     <div className="App bg-[#ffeaea]" id='screen'>
       <div className='flex w-full'>
-        {/* <div className='leftwindow fixed w-2/12 pt-8 bg-white h-[100vh]'>
-          <div className='flex flex-col content-center text-2xl font-semibold'>
-            <div className='flex content-center cursor-pointer hover:bg-gray-300 items-center pt-3 pb-3'>
-              <span class="material-symbols-outlined ml-3 mr-4" style={{ color: 'grey' }}>
-                clear_day
-              </span>
-              <h1 className='text-lg'>My Day</h1>
-            </div>
-            <div className='flex content-center items-center cursor-pointer hover:bg-gray-300  pt-3 pb-3'>
-              <span class="material-symbols-outlined ml-2 mr-4" style={{ color: 'grey' }}>
-                star
-              </span>
-              <h1 className='text-lg'>Important</h1>
-            </div>
-            <div className='flex content-center items-center cursor-pointer hover:bg-gray-300 pt-3 pb-3'>
-              <span class="material-symbols-outlined ml-2 mr-4" style={{ color: 'grey' }}>
-                shopping_cart
-              </span>
-              <h1 className='text-lg'>Groceries</h1>
-            </div>
-          </div>
-        </div> */}
         <div className='rightwindow w-10/12 mt-8' style={{ marginLeft: '10%' }}>
           <div>
-            <Tasklist notes={notes} handleNoteDelete={deleteNote} handleimportant = {important}/>
+            <Tasklist notes={notes} handleNoteDelete={deleteNote} handleimportant={important} />
           </div>
           <TextArea handleaddtext={addtext} />
         </div>
